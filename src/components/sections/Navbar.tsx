@@ -77,7 +77,7 @@ export function Navbar() {
         "fixed top-0 left-0 right-0 z-40 transition-all duration-300",
         isScrolled
           ? "bg-white/80 backdrop-blur-lg shadow-sm border-b border-border/50"
-          : "bg-transparent"
+          : "bg-white/20 backdrop-blur-md border-b border-white/10"
       )}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
