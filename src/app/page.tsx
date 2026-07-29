@@ -21,6 +21,11 @@ const WhyChooseUs = dynamic(
   { loading: () => <div className="py-16" /> }
 )
 
+const Testimonials = dynamic(
+  () => import("@/components/sections/Testimonials").then((m) => ({ default: m.Testimonials })),
+  { loading: () => <div className="py-16" /> }
+)
+
 const Contact = dynamic(
   () => import("@/components/sections/Contact").then((m) => ({ default: m.Contact })),
   { loading: () => <div className="py-16" /> }
@@ -34,6 +39,7 @@ export default function Home() {
       <About />
       <Services />
       <WhyChooseUs />
+      <Testimonials />
       <Contact />
     </>
   )
