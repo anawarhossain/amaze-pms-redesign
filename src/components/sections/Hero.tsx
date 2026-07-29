@@ -5,6 +5,7 @@ import Link from "next/link"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { COMPANY } from "@/lib/constants"
 import { Container } from "@/components/ui/Container"
+import { MagneticButton } from "@/components/animations/MagneticButton"
 
 const floatingShapes = [
   { size: 60, x: "10%", y: "20%", delay: 0, duration: 6, speed: 0.3 },
@@ -102,18 +103,22 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="mt-8 flex flex-wrap gap-4"
           >
-            <Link
-              href="/#services"
-              className="inline-flex items-center justify-center rounded-lg bg-primary px-8 py-3 text-lg font-medium text-primary-foreground shadow-sm transition-all duration-200 hover:scale-[1.02] hover:shadow-md active:scale-[0.98]"
-            >
-              Explore Services
-            </Link>
-            <Link
-              href="/#contact"
-              className="inline-flex items-center justify-center rounded-lg border border-border bg-transparent px-8 py-3 text-lg font-medium transition-all duration-200 hover:scale-[1.02] hover:bg-accent active:scale-[0.98]"
-            >
-              Get in Touch
-            </Link>
+            <MagneticButton>
+              <Link
+                href="/#services"
+                className="inline-flex items-center justify-center rounded-lg bg-primary px-8 py-3 text-lg font-medium text-primary-foreground shadow-sm transition-all duration-200 hover:scale-[1.02] hover:shadow-md active:scale-[0.98]"
+              >
+                Explore Services
+              </Link>
+            </MagneticButton>
+            <MagneticButton>
+              <Link
+                href="/#contact"
+                className="inline-flex items-center justify-center rounded-lg border border-border bg-transparent px-8 py-3 text-lg font-medium transition-all duration-200 hover:scale-[1.02] hover:bg-accent active:scale-[0.98]"
+              >
+                Get in Touch
+              </Link>
+            </MagneticButton>
           </motion.div>
         </div>
       </Container>

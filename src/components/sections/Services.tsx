@@ -18,6 +18,7 @@ import { SectionWrapper } from "@/components/ui/SectionWrapper"
 import { SectionHeading } from "@/components/ui/SectionHeading"
 import { FadeIn } from "@/components/animations/FadeIn"
 import { ScaleIn } from "@/components/animations/ScaleIn"
+import { TiltCard } from "@/components/animations/TiltCard"
 
 const icons: Icon[] = [
   IconShieldCheck,
@@ -57,7 +58,7 @@ export function Services() {
             const imgSrc = serviceImages[i]
             return (
               <ScaleIn key={service.title} delay={i * 0.05}>
-                <div className="group relative overflow-hidden rounded-xl border bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover hover:ring-1 hover:ring-primary/20">
+                <TiltCard className="group relative overflow-hidden rounded-xl border bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover hover:ring-1 hover:ring-primary/20">
                   <div className="absolute inset-0 -z-10">
                     <Image
                       src={imgSrc}
@@ -81,7 +82,7 @@ export function Services() {
                       <span aria-hidden>&rarr;</span>
                     </p>
                   </div>
-                </div>
+                </TiltCard>
               </ScaleIn>
             )
           })}

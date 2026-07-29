@@ -6,6 +6,7 @@ import { COMPANY, ABOUT_TEXT } from "@/lib/constants"
 import { Container } from "@/components/ui/Container"
 import { SectionWrapper } from "@/components/ui/SectionWrapper"
 import { FadeIn } from "@/components/animations/FadeIn"
+import { MagneticButton } from "@/components/animations/MagneticButton"
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter"
 
 export function About() {
@@ -113,12 +114,14 @@ export function About() {
               </div>
             </div>
 
-            <Link
-              href="/#contact"
-              className="mt-8 inline-flex items-center justify-center rounded-lg bg-primary px-6 py-2.5 text-sm font-medium text-primary-foreground shadow-sm transition-all duration-200 hover:scale-[1.02] hover:shadow-md"
-            >
-              Get Started With Us
-            </Link>
+            <MagneticButton>
+              <Link
+                href="/#contact"
+                className="mt-8 inline-flex items-center justify-center rounded-lg bg-primary px-6 py-2.5 text-sm font-medium text-primary-foreground shadow-sm transition-all duration-200 hover:scale-[1.02] hover:shadow-md"
+              >
+                Get Started With Us
+              </Link>
+            </MagneticButton>
           </FadeIn>
         </div>
       </Container>

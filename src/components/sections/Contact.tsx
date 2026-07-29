@@ -4,6 +4,7 @@ import { COMPANY } from "@/lib/constants"
 import { Container } from "@/components/ui/Container"
 import { SectionWrapper } from "@/components/ui/SectionWrapper"
 import { FadeIn } from "@/components/animations/FadeIn"
+import { RippleButton } from "@/components/animations/RippleButton"
 import { IconPhone, IconMapPin, IconMail } from "@tabler/icons-react"
 
 export function Contact() {
@@ -129,12 +130,12 @@ export function Contact() {
                   className="mt-1 w-full resize-none rounded-lg border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground"
                 />
               </div>
-              <button
+              <RippleButton
                 type="submit"
                 className="w-full rounded-lg bg-primary px-6 py-2.5 text-sm font-medium text-primary-foreground shadow-sm transition-all duration-200 hover:scale-[1.02] hover:shadow-md"
               >
                 Send Message
-              </button>
+              </RippleButton>
             </form>
           </FadeIn>
         </div>

@@ -19,6 +19,7 @@ import { Container } from "@/components/ui/Container"
 import { SectionWrapper } from "@/components/ui/SectionWrapper"
 import { SectionHeading } from "@/components/ui/SectionHeading"
 import { FadeIn } from "@/components/animations/FadeIn"
+import { TiltCard } from "@/components/animations/TiltCard"
 import { GlassCard } from "@/components/ui/GlassCard"
 import type { Icon } from "@tabler/icons-react"
 
@@ -58,6 +59,7 @@ export function WhyChooseUs() {
                 key={i}
                 delay={Math.min(i * 0.04, 0.3)}
               >
+                <TiltCard className="h-full">
                 <GlassCard className="group h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover hover:ring-1 hover:ring-primary/20">
                   <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/5 text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
                     <CatIcon size={22} />
@@ -69,6 +71,7 @@ export function WhyChooseUs() {
                     {item}
                   </p>
                 </GlassCard>
+                </TiltCard>
               </FadeIn>
             )
           })}
