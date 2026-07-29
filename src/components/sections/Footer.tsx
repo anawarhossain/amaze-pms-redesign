@@ -1,9 +1,57 @@
 "use client"
 
+import { useState } from "react"
 import Link from "next/link"
-import { IconArrowUp, IconPhone, IconMail, IconMapPin } from "@tabler/icons-react"
+import {
+  IconArrowUp,
+  IconPhone,
+  IconMail,
+  IconMapPin,
+  IconChevronDown,
+} from "@tabler/icons-react"
 import { COMPANY, FOOTER_LINKS } from "@/lib/constants"
 import { Container } from "@/components/ui/Container"
+import { cn } from "@/lib/utils"
+
+function AccordionSection({
+  title,
+  children,
+  defaultOpen = false,
+}: {
+  title: string
+  children: React.ReactNode
+  defaultOpen?: boolean
+}) {
+  const [open, setOpen] = useState(defaultOpen)
+
+  return (
+    <div>
+      <button
+        onClick={() => setOpen(!open)}
+        className="flex w-full items-center justify-between md:cursor-default md:pointer-events-none"
+      >
+        <h3 className="text-sm font-semibold uppercase tracking-wider">
+          {title}
+        </h3>
+        <IconChevronDown
+          size={16}
+          className={cn(
+            "shrink-0 transition-transform duration-200 md:hidden",
+            open && "rotate-180"
+          )}
+        />
+      </button>
+      <div
+        className={cn(
+          "overflow-hidden transition-all duration-300",
+          open ? "mt-4 max-h-96 opacity-100" : "max-h-0 opacity-0 md:max-h-96 md:opacity-100 md:mt-4"
+        )}
+      >
+        {children}
+      </div>
+    </div>
+  )
+}
 
 export function Footer() {
   const scrollToTop = () => {
@@ -34,11 +82,8 @@ export function Footer() {
             </div>
           </div>
 
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider">
-              Menu
-            </h3>
-            <ul className="mt-4 space-y-3">
+          <AccordionSection title="Menu">
+            <ul className="space-y-3">
               {FOOTER_LINKS.menu.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -50,13 +95,10 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </AccordionSection>
 
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider">
-              Quick Links
-            </h3>
-            <ul className="mt-4 space-y-3">
+          <AccordionSection title="Quick Links">
+            <ul className="space-y-3">
               {FOOTER_LINKS.quickLinks.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -68,29 +110,20 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </AccordionSection>
 
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider">
-              Our Presence
-            </h3>
-            <ul className="mt-4 space-y-3">
+          <AccordionSection title="Our Presence">
+            <ul className="space-y-3">
               {FOOTER_LINKS.presence.map((loc) => (
-                <li
-                  key={loc}
-                  className="text-sm text-secondary-foreground/70"
-                >
+                <li key={loc} className="text-sm text-secondary-foreground/70">
                   {loc}
                 </li>
               ))}
             </ul>
-          </div>
+          </AccordionSection>
 
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider">
-              Contact
-            </h3>
-            <div className="mt-4 space-y-3">
+          <AccordionSection title="Contact">
+            <div className="space-y-3">
               <div className="flex items-start gap-2">
                 <IconMapPin size={16} className="mt-0.5 shrink-0 text-primary" />
                 <span className="text-sm text-secondary-foreground/70">
@@ -110,7 +143,7 @@ export function Footer() {
                 </span>
               </div>
             </div>
-          </div>
+          </AccordionSection>
         </div>
       </Container>
 
