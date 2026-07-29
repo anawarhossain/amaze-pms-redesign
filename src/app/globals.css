@@ -47,6 +47,43 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Fluid type scale */
+.text-fluid-hero {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.05;
+}
+
+.text-fluid-h1 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.1;
+}
+
+.text-fluid-h2 {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  line-height: 1.15;
+}
+
+.text-fluid-h3 {
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  line-height: 1.2;
+}
+
+/* Letter-spacing refinements */
+.tracking-tightest {
+  letter-spacing: -0.035em;
+}
+
+.tracking-wide {
+  letter-spacing: 0.05em;
+}
+
+/* Variable font weight helpers */
+.font-normal { font-weight: 400; }
+.font-medium { font-weight: 500; }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }
+.font-extrabold { font-weight: 800; }
+
 /* Noise texture overlay */
 .bg-noise {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
