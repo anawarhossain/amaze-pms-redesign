@@ -1,9 +1,5 @@
-
+import { Hero } from "@/components/sections/Hero"
 
 export default function Home() {
-  return (
-    <div>
-      <p>Home page</p>
-    </div>
-  );
+  return <Hero />
 }
