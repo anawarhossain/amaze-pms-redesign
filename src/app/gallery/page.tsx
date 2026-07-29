@@ -10,13 +10,13 @@ export const metadata: Metadata = {
 }
 
 const items = [
-  { title: "Security Services", src: "/gallery1.png" },
-  { title: "Housekeeping", src: "/gallery2.png" },
-  { title: "Technical Services", src: "/gallery3.png" },
-  { title: "Landscaping", src: "/gallery4.png" },
-  { title: "Pest Control", src: "/gallery5.png" },
-  { title: "Help Desk", src: "/gallery6.png" },
-  { title: "Property Management", src: "/gallery7.png" },
+  { title: "Security Services", src: "/gallery1.webp" },
+  { title: "Housekeeping", src: "/gallery2.webp" },
+  { title: "Technical Services", src: "/gallery3.webp" },
+  { title: "Landscaping", src: "/gallery4.webp" },
+  { title: "Pest Control", src: "/gallery5.webp" },
+  { title: "Help Desk", src: "/gallery6.webp" },
+  { title: "Property Management", src: "/gallery7.webp" },
 ]
 
 export default function GalleryPage() {

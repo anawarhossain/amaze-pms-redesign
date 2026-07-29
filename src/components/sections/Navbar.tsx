@@ -57,12 +57,17 @@ export function Navbar() {
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string
   ) => {
-    if (href.startsWith("/#") && pathname === "/") {
-      e.preventDefault()
-      const id = href.replace("/#", "")
-      const el = document.getElementById(id)
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth" })
+    if (pathname === "/") {
+      if (href === "/") {
+        e.preventDefault()
+        window.scrollTo({ top: 0, behavior: "smooth" })
+      } else if (href.startsWith("/#")) {
+        e.preventDefault()
+        const id = href.replace("/#", "")
+        const el = document.getElementById(id)
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" })
+        }
       }
     }
     setIsMobileOpen(false)
