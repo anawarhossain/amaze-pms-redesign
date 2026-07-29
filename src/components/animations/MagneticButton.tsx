@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, cloneElement, type ReactElement } from "react"
+import { useRef, type ReactElement } from "react"
 import { motion, useMotionValue, useSpring } from "framer-motion"
 
 interface MagneticButtonProps {
