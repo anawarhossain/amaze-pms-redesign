@@ -1,9 +1,11 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #2563eb;
+  --color-primary: #1d4ed8;
+  --color-primary-dark: #1e40af;
+  --color-primary-light: #3b82f6;
   --color-primary-foreground: #ffffff;
-  --color-secondary: #1e293b;
+  --color-secondary: #0f172a;
   --color-secondary-foreground: #ffffff;
   --color-accent: #f1f5f9;
   --color-accent-foreground: #0f172a;
@@ -15,13 +17,20 @@
   --color-muted-foreground: #475569;
   --color-border: #e2e8f0;
 
-  --color-glass-bg: rgba(255 255 255 / 0.6);
-  --color-glass-border: rgba(255 255 255 / 0.2);
+  --color-glass-bg: rgba(255 255 255 / 0.7);
+  --color-glass-bg-strong: rgba(255 255 255 / 0.85);
+  --color-glass-border: rgba(255 255 255 / 0.25);
+  --color-glass-border-strong: rgba(255 255 255 / 0.4);
   --color-glass-shadow: 0 8px 32px rgba(0 0 0 / 0.08);
 
   --shadow-glass: 0 8px 32px rgba(0 0 0 / 0.08);
+  --shadow-glass-strong: 0 8px 40px rgba(0 0 0 / 0.12);
   --shadow-card: 0 1px 3px rgba(0 0 0 / 0.08), 0 1px 2px rgba(0 0 0 / 0.06);
   --shadow-card-hover: 0 10px 25px rgba(0 0 0 / 0.1);
+  --shadow-glow: 0 0 20px rgba(29 78 216 / 0.15);
+  --shadow-glow-lg: 0 0 40px rgba(29 78 216 / 0.2);
+
+  --color-noise: rgba(0 0 0 / 0.03);
 }
 
 ::selection {
@@ -36,6 +45,37 @@ html {
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Noise texture overlay */
+.bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* Gradient utilities */
+.bg-gradient-glow {
+  background-image: radial-gradient(
+    ellipse 80% 50% at 50% -20%,
+    rgba(29 78 216 / 0.12),
+    transparent
+  );
+}
+
+/* Glassmorphism utilities */
+.glass {
+  background-color: var(--color-glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--color-glass-border);
+}
+
+.glass-strong {
+  background-color: var(--color-glass-bg-strong);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--color-glass-border-strong);
 }
 
 /* Marquee animations */
