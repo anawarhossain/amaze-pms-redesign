@@ -23,6 +23,10 @@ export function Navbar() {
   }, [])
 
   useEffect(() => {
+    setIsMobileOpen(false)
+  }, [pathname])
+
+  useEffect(() => {
     if (pathname !== "/") return
 
     const sectionIds = NAV_LINKS.filter((l) => l.href.startsWith("/#")).map((l) =>
