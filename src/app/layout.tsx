@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import { SmoothScrollProvider } from "@/components/SmoothScrollProvider"
+import { ScrollProgress } from "@/components/ScrollProgress"
 import { Navbar } from "@/components/sections/Navbar"
 import { Footer } from "@/components/sections/Footer"
 import "./globals.css"
@@ -51,6 +52,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <SmoothScrollProvider>
+          <ScrollProgress />
           <Navbar />
           <main className="flex-1">{children}</main>
           <Footer />

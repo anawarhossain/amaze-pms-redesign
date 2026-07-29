@@ -1,21 +1,38 @@
 "use client"
 
+import { useRef } from "react"
 import Link from "next/link"
-import { motion } from "framer-motion"
+import { motion, useScroll, useTransform } from "framer-motion"
 import { COMPANY } from "@/lib/constants"
 import { Container } from "@/components/ui/Container"
 
 const floatingShapes = [
-  { size: 60, x: "10%", y: "20%", delay: 0, duration: 6 },
-  { size: 40, x: "85%", y: "15%", delay: 1, duration: 8 },
-  { size: 80, x: "75%", y: "70%", delay: 0.5, duration: 7 },
-  { size: 30, x: "20%", y: "75%", delay: 2, duration: 5 },
-  { size: 50, x: "50%", y: "10%", delay: 1.5, duration: 9 },
+  { size: 60, x: "10%", y: "20%", delay: 0, duration: 6, speed: 0.3 },
+  { size: 40, x: "85%", y: "15%", delay: 1, duration: 8, speed: 0.5 },
+  { size: 80, x: "75%", y: "70%", delay: 0.5, duration: 7, speed: 0.2 },
+  { size: 30, x: "20%", y: "75%", delay: 2, duration: 5, speed: 0.6 },
+  { size: 50, x: "50%", y: "10%", delay: 1.5, duration: 9, speed: 0.4 },
 ]
 
 export function Hero() {
+  const ref = useRef<HTMLDivElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  })
+
+  const y0 = useTransform(scrollYProgress, [0, 1], [0, floatingShapes[0].speed * 200])
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, floatingShapes[1].speed * 200])
+  const y2 = useTransform(scrollYProgress, [0, 1], [0, floatingShapes[2].speed * 200])
+  const y3 = useTransform(scrollYProgress, [0, 1], [0, floatingShapes[3].speed * 200])
+  const y4 = useTransform(scrollYProgress, [0, 1], [0, floatingShapes[4].speed * 200])
+  const yTransforms = [y0, y1, y2, y3, y4]
+
   return (
-    <section className="relative flex min-h-screen items-center overflow-hidden">
+    <section
+      ref={ref}
+      className="relative flex min-h-screen items-center overflow-hidden"
+    >
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-blue-50 via-white to-purple-50" />
       <div
         className="absolute inset-0 -z-10 opacity-30"
@@ -34,9 +51,9 @@ export function Hero() {
             height: shape.size,
             left: shape.x,
             top: shape.y,
+            y: yTransforms[i],
           }}
           animate={{
-            y: [0, -30, 0, 20, 0],
             scale: [1, 1.1, 0.95, 1.05, 1],
           }}
           transition={{
