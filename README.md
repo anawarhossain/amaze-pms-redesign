@@ -284,3 +284,21 @@ vercel --prod
 Connected to GitHub for automatic CI/CD. Custom domain and HTTPS configured via Vercel.
 
 **GitHub Repository:** [https://github.com/anawarhossain/amaze-pms-redesign](https://github.com/anawarhossain/amaze-pms-redesign)
+
+---
+
+## 👨‍💻 Author
+**Md Anawar Hossain**
+- **GitHub:** [@anawarhossain](https://github.com/anawarhossain)
+- **Facebook:** [Anawar Hossain](https://web.facebook.com/AnawarHossain55)
+- **LinkeIn:** [Anawar Hossain](https://www.linkedin.com/in/anawarhossain/)
+- **X(Twitter):** [Anawar Hossain](https://x.com/MDANAWAR22)
+- **WhatsApp:** [Anawar Hossain](https://wa.me/+8801701020694)
+
+
+
+## Project Screenshot
+
+<p align="center">
+  <img src="public/preview.png" alt="Project Preview" width=" ">
+</p>
