@@ -1,10 +1,15 @@
 import type { Metadata } from "next"
+import dynamic from "next/dynamic"
 import { Geist, Geist_Mono } from "next/font/google"
 import { SmoothScrollProvider } from "@/components/SmoothScrollProvider"
 import { ScrollProgress } from "@/components/ScrollProgress"
 import { Navbar } from "@/components/sections/Navbar"
-import { Footer } from "@/components/sections/Footer"
 import "./globals.css"
+
+const Footer = dynamic(
+  () => import("@/components/sections/Footer").then((m) => ({ default: m.Footer })),
+  { loading: () => <div className="py-16" /> }
+)
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
