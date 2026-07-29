@@ -86,15 +86,19 @@ src/
 ## Features & Implementation Details
 
 ### 1. Navigation (`Navbar.tsx`)
-- **Glassmorphism** — Transparent at top, `backdrop-blur-lg` with `bg-white/80` on scroll.
+- **Glassmorphism** — Subtle `bg-white/20 backdrop-blur-md` at top (always readable against hero), transitions to `bg-white/80 backdrop-blur-lg shadow-sm` on scroll.
 - **Scroll-aware** — IntersectionObserver tracks active section, highlights corresponding nav link with animated underline.
 - **Mobile hamburger** — Full-screen overlay, all nav items include `handleNavClick` for smooth scroll + menu close.
 - **MagneticButton** — Not applied to nav (intentional — nav links use standard underline effect for clarity).
 
 ### 2. Hero (`Hero.tsx`)
-- **Full viewport** with gradient background (`from-blue-50 via-white to-purple-50`) and radial gradient accents.
-- **5 floating shapes** — Parallax depth via `useScroll` + `useTransform` at varying speed multipliers.
+- **8-slide image carousel** — Full-viewport, auto-advances every 5s. Each slide shows a different service (Security, Housekeeping, Technical, Landscaping, Pest Control, Help Desk, Parking) with a WebP background image via `next/image`.
+- **AnimatePresence transitions** — Direction-aware scale + fade transitions between slides.
+- **Gradient overlays** — Bottom-to-top and left-to-right dark gradients (`from-black/70` → transparent) overlaid on each slide image for text readability.
+- **Floating shapes** — 5 parallax particles driven by `useScroll` + `useTransform` at varying speed multipliers.
 - **Staggered entrance** — Heading → subtitle → CTAs with Framer Motion `animate` at increasing delays.
+- **Manual navigation** — Left/right arrow buttons + animated dot indicators (active dot wider with `bg-primary`).
+- **Social sidebar** — Fixed-left column with Facebook, Instagram, LinkedIn icons.
 - **MagneticButton CTAs** — "Explore Services" and "Get in Touch" buttons use `useMotionValue` + `useSpring` for cursor-following magnetic pull on hover.
 
 ### 3. Trusted Partners & Stats (`TrustedPartners.tsx`)
