@@ -36,7 +36,7 @@ export function TrustedPartners() {
             {[...clientNames, ...clientNames].map((name, i) => (
               <div
                 key={i}
-                className="flex h-16 w-40 items-center justify-center rounded-lg border bg-card px-4 text-sm font-medium text-muted-foreground"
+                className="flex h-16 w-40 items-center justify-center rounded-lg border bg-card px-4 text-sm font-medium text-muted-foreground transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:ring-1 hover:ring-primary/20"
               >
                 {name}
               </div>

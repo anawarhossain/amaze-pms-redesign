@@ -45,13 +45,16 @@ export function Services() {
             const Icon = icons[i]
             return (
               <ScaleIn key={service.title} delay={i * 0.05}>
-                <div className="group rounded-xl border bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover">
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/5 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-                    <Icon size={24} />
+                <div className="group rounded-xl border bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover hover:ring-1 hover:ring-primary/20">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/5 text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
+                    <Icon size={24} className="transition-transform duration-300 group-hover:rotate-12" />
                   </div>
                   <h3 className="text-lg font-semibold">{service.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                     {service.description}
+                  </p>
+                  <p className="mt-3 text-xs font-medium text-primary opacity-0 transition-all duration-300 group-hover:opacity-100">
+                    Learn more &rarr;
                   </p>
                 </div>
               </ScaleIn>

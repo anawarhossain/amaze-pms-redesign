@@ -31,7 +31,7 @@ export function About() {
                 {serviceIcons.map((Icon, i) => (
                   <div
                     key={i}
-                    className="flex aspect-square items-center justify-center rounded-xl bg-primary/5 text-primary transition-colors hover:bg-primary/10"
+                    className="flex aspect-square items-center justify-center rounded-xl bg-primary/5 text-primary transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary/10 hover:ring-1 hover:ring-primary/20"
                   >
                     <Icon size={24} />
                   </div>

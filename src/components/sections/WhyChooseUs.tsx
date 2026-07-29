@@ -61,7 +61,7 @@ export function WhyChooseUs() {
                     </div>
 
                     <div
-                      className={`rounded-xl border bg-card p-5 shadow-sm transition-all duration-300 hover:shadow-md md:w-[calc(50%-2rem)] ${
+                      className={`rounded-xl border bg-card p-5 shadow-sm transition-all duration-300 hover:shadow-md hover:ring-1 hover:ring-primary/20 md:w-[calc(50%-2rem)] ${
                         isLeft ? "md:text-right" : "md:text-left"
                       }`}
                     >
