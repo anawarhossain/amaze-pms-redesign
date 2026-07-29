@@ -4,20 +4,29 @@ import { Container } from "@/components/ui/Container"
 import { SectionWrapper } from "@/components/ui/SectionWrapper"
 import { SectionHeading } from "@/components/ui/SectionHeading"
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter"
+import { Badge } from "@/components/ui/Badge"
 import { STATS } from "@/lib/constants"
 import { FadeIn } from "@/components/animations/FadeIn"
+import {
+  IconBuildingSkyscraper,
+  IconUsers,
+  IconMapPin,
+  IconBuilding,
+  IconShieldCheck,
+  IconCertificate,
+  IconHeartHandshake,
+  IconClipboardCheck,
+} from "@tabler/icons-react"
 
-const clientNames = [
-  "Tech Park Solutions",
-  "Global Infra Ltd",
-  "Premier Hospitals",
-  "Elite Towers",
-  "Urban Spaces",
-  "Corp Offices Inc",
-  "Royal Residency",
-  "Green Valley Estates",
-  "Metro Malls",
-  "City Corp",
+const trustSignals = [
+  { label: "In-house Services", icon: IconBuildingSkyscraper },
+  { label: "PAN INDIA Presence", icon: IconMapPin },
+  { label: "15000+ Workforce", icon: IconUsers },
+  { label: "200+ Clients", icon: IconHeartHandshake },
+  { label: "20M Sq.ft Managed", icon: IconBuilding },
+  { label: "ISO Certified Processes", icon: IconCertificate },
+  { label: "EHS Compliance", icon: IconClipboardCheck },
+  { label: "Staff Welfare Programs", icon: IconShieldCheck },
 ]
 
 export function TrustedPartners() {
@@ -26,20 +35,34 @@ export function TrustedPartners() {
       <Container>
         <FadeIn>
           <SectionHeading
-            title="Trusted by 200+ valued partners around the India"
+            title="Trusted by 200+ valued partners across India"
             centered
           />
         </FadeIn>
 
         <div className="relative overflow-hidden py-8">
-          <div className="flex animate-marquee gap-16 whitespace-nowrap">
-            {[...clientNames, ...clientNames].map((name, i) => (
-              <div
+          <div className="flex animate-marquee gap-4 whitespace-nowrap">
+            {[...trustSignals, ...trustSignals].map((item, i) => (
+              <Badge
                 key={i}
-                className="flex h-16 w-40 items-center justify-center rounded-lg border bg-card px-4 text-sm font-medium text-muted-foreground transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:ring-1 hover:ring-primary/20"
+                variant="primary"
+                className="flex shrink-0 items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium shadow-sm transition-all duration-300 hover:shadow-md"
               >
-                {name}
-              </div>
+                <item.icon size={18} />
+                {item.label}
+              </Badge>
+            ))}
+          </div>
+          <div className="mt-4 flex animate-marquee-reverse gap-4 whitespace-nowrap">
+            {[...trustSignals, ...trustSignals].map((item, i) => (
+              <Badge
+                key={`r-${i}`}
+                variant="outline"
+                className="flex shrink-0 items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium shadow-sm transition-all duration-300 hover:shadow-md"
+              >
+                <item.icon size={18} />
+                {item.label}
+              </Badge>
             ))}
           </div>
         </div>
