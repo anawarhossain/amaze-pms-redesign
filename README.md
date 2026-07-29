@@ -266,7 +266,7 @@ npm run lint
 | About images | Downloaded from `amazepms.com/assets/` — aboutimgmobile.webp, about1.webp, Group-99.webp, choose.webp |
 | Logo | Downloaded from `amazepms.com/assets/` — logo.webp |
 | Icons (social) | Downloaded from `amazepms.com/assets/` — facebook.webp, instagram.webp, linkedin.webp, tick.webp |
-| Gallery images | `public/gallery1.png` through `gallery7.png` — placeholder project photos |
+| Gallery images | `public/gallery1.webp` through `gallery7.webp` — placeholder project photos (converted from PNG to WebP) |
 | Hero background | CSS gradient (`from-blue-50 via-white to-purple-50`) + radial gradient accents |
 | Noise texture | Inline SVG data-URI fractal noise at 4% opacity |
 
