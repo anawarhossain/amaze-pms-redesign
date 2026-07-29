@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { NAV_LINKS } from "@/lib/constants"
 import { IconMenu2, IconX } from "@tabler/icons-react"
@@ -68,7 +69,10 @@ export function Navbar() {
   }
 
   return (
-    <header
+    <motion.header
+      initial={{ y: -80, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
       className={cn(
         "fixed top-0 left-0 right-0 z-40 transition-all duration-300",
         isScrolled
@@ -138,6 +142,6 @@ export function Navbar() {
           ))}
         </div>
       )}
-    </header>
+    </motion.header>
   )
 }
