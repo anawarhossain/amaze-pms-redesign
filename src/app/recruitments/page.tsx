@@ -13,7 +13,7 @@ export default function RecruitmentsPage() {
     <main>
       <SectionWrapper className="pt-32">
         <Container>
-          <SectionHeading title="Recruitments" subtitle="Submit your application to join Amaze PMS" centered />
+          <SectionHeading as="h1" title="Recruitments" subtitle="Submit your application to join Amaze PMS" centered />
           <div className="mx-auto max-w-2xl rounded-xl border bg-card p-8 shadow-sm">
             <p className="mb-6 text-sm text-muted-foreground">
               Fill in your details and we will get back to you regarding suitable openings.

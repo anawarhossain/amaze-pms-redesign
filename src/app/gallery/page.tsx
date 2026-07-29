@@ -25,6 +25,7 @@ export default function GalleryPage() {
       <SectionWrapper className="pt-32">
         <Container>
           <SectionHeading
+            as="h1"
             title="Gallery"
             subtitle="A glimpse into our operations and expertise"
             centered

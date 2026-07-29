@@ -28,6 +28,7 @@ function AccordionSection({
     <div>
       <button
         onClick={() => setOpen(!open)}
+        aria-expanded={open}
         className="flex w-full items-center justify-between md:cursor-default md:pointer-events-none"
       >
         <h3 className="text-sm font-semibold uppercase tracking-wider">
@@ -70,15 +71,27 @@ export function Footer() {
               A one stop solutions for all your property management needs.
             </p>
             <div className="mt-4 flex gap-3">
-              <span className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-white/10 text-xs text-secondary-foreground/60 transition-colors hover:bg-white/20 hover:text-secondary-foreground">
+              <a
+                href="#"
+                aria-label="Follow us on X (formerly Twitter)"
+                className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-xs text-secondary-foreground/60 transition-colors hover:bg-white/20 hover:text-secondary-foreground"
+              >
                 X
-              </span>
-              <span className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-white/10 text-xs text-secondary-foreground/60 transition-colors hover:bg-white/20 hover:text-secondary-foreground">
+              </a>
+              <a
+                href="#"
+                aria-label="Follow us on LinkedIn"
+                className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-xs text-secondary-foreground/60 transition-colors hover:bg-white/20 hover:text-secondary-foreground"
+              >
                 in
-              </span>
-              <span className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-white/10 text-xs text-secondary-foreground/60 transition-colors hover:bg-white/20 hover:text-secondary-foreground">
+              </a>
+              <a
+                href="#"
+                aria-label="Follow us on Facebook"
+                className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-xs text-secondary-foreground/60 transition-colors hover:bg-white/20 hover:text-secondary-foreground"
+              >
                 f
-              </span>
+              </a>
             </div>
           </div>
 

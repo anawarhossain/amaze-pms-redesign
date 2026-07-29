@@ -13,7 +13,7 @@ export default function CareersPage() {
     <main>
       <SectionWrapper className="pt-32">
         <Container>
-          <SectionHeading title="Careers" subtitle="Join our team of 15000+ professionals" centered />
+          <SectionHeading as="h1" title="Careers" subtitle="Join our team of 15000+ professionals" centered />
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {["Security Supervisor", "Housekeeping Manager", "Technical Engineer", "Landscaping Specialist", "Pest Control Technician", "Help Desk Executive"].map((role) => (
               <div key={role} className="rounded-xl border bg-card p-6 shadow-sm transition-all hover:shadow-md">

@@ -43,7 +43,12 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
   },
+  alternates: {
+    canonical: "https://amazepms.com",
+  },
 }
+
+export const viewport = "width=device-width, initial-scale=1"
 
 export default function RootLayout({
   children,
@@ -56,10 +61,18 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:text-primary-foreground"
+        >
+          Skip to content
+        </a>
         <SmoothScrollProvider>
           <ScrollProgress />
           <Navbar />
-          <main className="flex-1">{children}</main>
+          <main id="main-content" className="flex-1">
+            {children}
+          </main>
           <Footer />
         </SmoothScrollProvider>
       </body>
