@@ -16,7 +16,15 @@ import {
   IconCertificate,
   IconHeartHandshake,
   IconClipboardCheck,
+  IconBriefcase,
 } from "@tabler/icons-react"
+
+const statIcons = [
+  IconBriefcase,
+  IconHeartHandshake,
+  IconBuilding,
+  IconMapPin,
+] as const
 
 const trustSignals = [
   { label: "In-house Services", icon: IconBuildingSkyscraper },
@@ -68,33 +76,39 @@ export function TrustedPartners() {
         </div>
 
         <div className="mt-16 grid grid-cols-2 gap-8 md:grid-cols-4">
-          {STATS.map((stat, i) => (
-            <FadeIn key={stat.label} delay={i * 0.1}>
-              <div className="text-center">
-                {"value" in stat ? (
-                  <p className="text-3xl font-bold tracking-tight sm:text-4xl">
-                    {typeof stat.value === "string" ? (
-                      <span>
-                        {stat.value}
-                        {stat.suffix && (
-                          <span className="ml-0.5">{stat.suffix}</span>
-                        )}
-                      </span>
-                    ) : (
-                      <AnimatedCounter to={stat.value} suffix={stat.suffix} />
-                    )}
+          {STATS.map((stat, i) => {
+            const StatIcon = statIcons[i]
+            return (
+              <FadeIn key={stat.label} delay={i * 0.1}>
+                <div className="group text-center">
+                  <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/5 text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground group-hover:shadow-glow">
+                    <StatIcon size={24} />
+                  </div>
+                  {"value" in stat ? (
+                    <p className="text-fluid-h2 font-bold">
+                      {typeof stat.value === "string" ? (
+                        <span>
+                          {stat.value}
+                          {stat.suffix && (
+                            <span className="ml-0.5">{stat.suffix}</span>
+                          )}
+                        </span>
+                      ) : (
+                        <AnimatedCounter to={stat.value} suffix={stat.suffix} />
+                      )}
+                    </p>
+                  ) : (
+                    <p className="text-fluid-h3 font-bold">
+                      {stat.label}
+                    </p>
+                  )}
+                  <p className="mt-1.5 text-sm text-muted-foreground">
+                    {"value" in stat ? stat.label : ""}
                   </p>
-                ) : (
-                  <p className="text-2xl font-bold tracking-tight sm:text-3xl">
-                    {stat.label}
-                  </p>
-                )}
-                <p className="mt-2 text-sm text-muted-foreground">
-                  {"value" in stat ? stat.label : ""}
-                </p>
-              </div>
-            </FadeIn>
-          ))}
+                </div>
+              </FadeIn>
+            )
+          })}
         </div>
       </Container>
     </SectionWrapper>

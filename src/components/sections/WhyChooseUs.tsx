@@ -1,25 +1,40 @@
 "use client"
 
-import { IconCircleCheck } from "@tabler/icons-react"
+import {
+  IconScale,
+  IconBuildingSkyscraper,
+  IconUsersGroup,
+  IconSchool,
+  IconShieldCheck,
+  IconFileText,
+  IconClipboardCheck,
+  IconTool,
+  IconBuildingCommunity,
+  IconReportSearch,
+  IconFileAnalytics,
+  IconHeartHandshake,
+} from "@tabler/icons-react"
 import { WHY_CHOOSE_US } from "@/lib/constants"
 import { Container } from "@/components/ui/Container"
 import { SectionWrapper } from "@/components/ui/SectionWrapper"
 import { SectionHeading } from "@/components/ui/SectionHeading"
 import { FadeIn } from "@/components/animations/FadeIn"
+import { GlassCard } from "@/components/ui/GlassCard"
+import type { Icon } from "@tabler/icons-react"
 
-const categories = [
-  "Scale & Reach",
-  "Service Model",
-  "Staffing",
-  "Training",
-  "Risk Management",
-  "Documentation",
-  "Audit & Improvement",
-  "Maintenance",
-  "Government Liaison",
-  "Comprehensive Audits",
-  "AMC Management",
-  "Staff Welfare",
+const categories: { label: string; icon: Icon }[] = [
+  { label: "Scale & Reach", icon: IconScale },
+  { label: "Service Model", icon: IconBuildingSkyscraper },
+  { label: "Staffing", icon: IconUsersGroup },
+  { label: "Training", icon: IconSchool },
+  { label: "Risk Management", icon: IconShieldCheck },
+  { label: "Documentation", icon: IconFileText },
+  { label: "Audit & Improvement", icon: IconClipboardCheck },
+  { label: "Maintenance", icon: IconTool },
+  { label: "Government Liaison", icon: IconBuildingCommunity },
+  { label: "Comprehensive Audits", icon: IconReportSearch },
+  { label: "AMC Management", icon: IconFileAnalytics },
+  { label: "Staff Welfare", icon: IconHeartHandshake },
 ]
 
 export function WhyChooseUs() {
@@ -34,49 +49,29 @@ export function WhyChooseUs() {
           />
         </FadeIn>
 
-        <div className="relative">
-          <div className="absolute left-4 top-0 hidden h-full w-px bg-border md:left-1/2 md:-translate-x-px md:block" />
-
-          <div className="space-y-8 md:space-y-12">
-            {WHY_CHOOSE_US.map((item, i) => {
-              const isLeft = i % 2 === 0
-
-              return (
-                <FadeIn
-                  key={i}
-                  delay={Math.min(i * 0.05, 0.3)}
-                  direction={isLeft ? "left" : "right"}
-                >
-                  <div
-                    className={`relative flex flex-col gap-4 md:flex-row ${
-                      isLeft ? "md:flex-row" : "md:flex-row-reverse"
-                    }`}
-                  >
-                    <div className="hidden md:block md:w-[calc(50%-2rem)]" />
-
-                    <div className="relative z-10 flex items-start gap-4 md:absolute md:left-1/2 md:-translate-x-1/2">
-                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border bg-card text-primary shadow-sm transition-all duration-300 hover:shadow-lg hover:shadow-primary/25">
-                        <IconCircleCheck size={16} />
-                      </div>
-                    </div>
-
-                    <div
-                      className={`rounded-xl border bg-card p-5 shadow-sm transition-all duration-300 hover:shadow-md hover:ring-1 hover:ring-primary/20 md:w-[calc(50%-2rem)] ${
-                        isLeft ? "md:text-right" : "md:text-left"
-                      }`}
-                    >
-                      <p className="text-xs font-medium uppercase tracking-wider text-primary">
-                        {categories[i]}
-                      </p>
-                      <p className="mt-1 text-sm leading-relaxed text-foreground">
-                        {item}
-                      </p>
-                    </div>
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {WHY_CHOOSE_US.map((item, i) => {
+            const cat = categories[i]
+            const CatIcon = cat.icon
+            return (
+              <FadeIn
+                key={i}
+                delay={Math.min(i * 0.04, 0.3)}
+              >
+                <GlassCard className="group h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover hover:ring-1 hover:ring-primary/20">
+                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/5 text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
+                    <CatIcon size={22} />
                   </div>
-                </FadeIn>
-              )
-            })}
-          </div>
+                  <p className="mb-1.5 text-xs font-semibold uppercase tracking-wider text-primary">
+                    {cat.label}
+                  </p>
+                  <p className="text-sm leading-relaxed text-muted-foreground">
+                    {item}
+                  </p>
+                </GlassCard>
+              </FadeIn>
+            )
+          })}
         </div>
       </Container>
     </SectionWrapper>

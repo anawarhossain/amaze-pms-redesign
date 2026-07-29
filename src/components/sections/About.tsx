@@ -1,24 +1,12 @@
 "use client"
 
+import Image from "next/image"
 import Link from "next/link"
-import {
-  IconShieldCheck,
-  IconBrush,
-  IconTool,
-  IconLeaf,
-  IconBug,
-  IconHeadset,
-  IconParking,
-} from "@tabler/icons-react"
 import { COMPANY, ABOUT_TEXT } from "@/lib/constants"
 import { Container } from "@/components/ui/Container"
 import { SectionWrapper } from "@/components/ui/SectionWrapper"
 import { FadeIn } from "@/components/animations/FadeIn"
-
-const serviceIcons = [
-  IconShieldCheck, IconBrush, IconTool, IconLeaf,
-  IconBug, IconHeadset, IconParking,
-]
+import { AnimatedCounter } from "@/components/ui/AnimatedCounter"
 
 export function About() {
   return (
@@ -27,15 +15,43 @@ export function About() {
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <FadeIn direction="left">
             <div className="relative">
-              <div className="grid grid-cols-4 gap-3">
-                {serviceIcons.map((Icon, i) => (
-                  <div
-                    key={i}
-                    className="flex aspect-square items-center justify-center rounded-xl bg-primary/5 text-primary transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary/10 hover:ring-1 hover:ring-primary/20"
-                  >
-                    <Icon size={24} />
-                  </div>
-                ))}
+              <div className="grid grid-cols-2 gap-4">
+                <div className="relative aspect-[4/5] overflow-hidden rounded-2xl">
+                  <Image
+                    src="/aboutimgmobile.webp"
+                    alt="Amaze PMS team"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 50vw, 25vw"
+                  />
+                </div>
+                <div className="relative mt-8 aspect-[4/5] overflow-hidden rounded-2xl">
+                  <Image
+                    src="/about1.webp"
+                    alt="Amaze PMS operations"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 50vw, 25vw"
+                  />
+                </div>
+                <div className="relative -mt-8 aspect-[4/5] overflow-hidden rounded-2xl">
+                  <Image
+                    src="/Group-99.webp"
+                    alt="Amaze PMS services"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 50vw, 25vw"
+                  />
+                </div>
+                <div className="relative aspect-[4/5] overflow-hidden rounded-2xl">
+                  <Image
+                    src="/choose.webp"
+                    alt="Amaze PMS strength"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 50vw, 25vw"
+                  />
+                </div>
               </div>
               <div className="absolute -bottom-4 -right-4 -z-10 h-48 w-48 rounded-full bg-primary/5 blur-3xl" />
               <div className="absolute -top-4 -left-4 -z-10 h-36 w-36 rounded-full bg-purple-500/5 blur-3xl" />
@@ -46,7 +62,7 @@ export function About() {
             <p className="mb-2 text-sm font-medium uppercase tracking-widest text-primary">
               About Us
             </p>
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+            <h2 className="text-fluid-h2 font-bold">
               {COMPANY.fullName}
             </h2>
             <p className="mt-4 leading-relaxed text-muted-foreground">
@@ -76,17 +92,23 @@ export function About() {
               </div>
             </div>
 
-            <div className="mt-8 flex flex-wrap gap-6">
+            <div className="mt-8 flex flex-wrap gap-8">
               <div>
-                <p className="text-2xl font-bold text-primary">2001</p>
+                <p className="text-fluid-h3 font-bold text-primary">
+                  <AnimatedCounter to={COMPANY.founded} />
+                </p>
                 <p className="text-sm text-muted-foreground">Founded</p>
               </div>
               <div>
-                <p className="text-2xl font-bold text-primary">15000+</p>
+                <p className="text-fluid-h3 font-bold text-primary">
+                  {COMPANY.workforce}+
+                </p>
                 <p className="text-sm text-muted-foreground">Professionals</p>
               </div>
               <div>
-                <p className="text-2xl font-bold text-primary">200+</p>
+                <p className="text-fluid-h3 font-bold text-primary">
+                  {COMPANY.clients}+
+                </p>
                 <p className="text-sm text-muted-foreground">Clients</p>
               </div>
             </div>
