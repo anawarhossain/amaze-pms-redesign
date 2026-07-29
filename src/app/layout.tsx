@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import { SmoothScrollProvider } from "@/components/SmoothScrollProvider"
 import { Navbar } from "@/components/sections/Navbar"
+import { Footer } from "@/components/sections/Footer"
 import "./globals.css"
 
 const geistSans = Geist({
@@ -52,6 +53,7 @@ export default function RootLayout({
         <SmoothScrollProvider>
           <Navbar />
           <main className="flex-1">{children}</main>
+          <Footer />
         </SmoothScrollProvider>
       </body>
     </html>
